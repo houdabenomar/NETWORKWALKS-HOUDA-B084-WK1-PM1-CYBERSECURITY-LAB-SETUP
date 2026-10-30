@@ -4,14 +4,18 @@
 ## 📖 Project Overview
 Welcome to my Week 1 project! This repository documents the setup of my personal virtual cybersecurity laboratory. The goal was to create a safe, isolated environment using **VirtualBox** and **Kali Linux** to practice penetration testing.
 
-## 📂 Repository Structure
-- `README.md`: Project overview (this file).
-- `notes/`: Contains detailed technical notes.
-
-## ⚙️ Technical Specifications
+## 🖥️ Host Machine Specifications
 | Component | Details |
 | :--- | :--- |
-| **Host OS** | Windows 11 |
+| **Host OS** | Windows 11 (64-bit) |
+| **Processor** | Intel(R) Core(TM) i7-8665U CPU @ 1.90GHz (2.11 GHz) |
+| **RAM** | 16.0 GB |
+| **Storage** | 238 GB (227 GB used) |
+| **Graphics** | Intel(R) UHD Graphics 620 |
+
+## ⚙️ Virtual Lab Configuration
+| Component | Details |
+| :--- | :--- |
 | **Virtualization** | Oracle VirtualBox 7.2.22 |
 | **Attacker Machine** | Kali Linux (2026.3) |
 | **Network Type** | NAT Network (`10.0.0.0/24`) |

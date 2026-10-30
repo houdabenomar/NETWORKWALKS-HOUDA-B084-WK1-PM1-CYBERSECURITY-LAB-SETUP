@@ -27,11 +27,11 @@ Welcome to my Week 1 project! This repository documents the setup of my personal
 
 ### 1. NAT Network Configuration (10.0.0.0/24)
 *Setting up the custom NAT Network in VirtualBox.*
-![NAT Network](natnetwork2.png.png)
+![NAT Network](natnetwork2.png)
 
 ### 2. Virtual Machine Network Settings
 *Configuring the Kali VM to use the NAT Network.*
-![VirtualBox Network](virtualbox2.png.png)
+![VirtualBox Network](virtualbox2.png)
 
 ### 3. Shared Folder Configuration
 *Configured the host's Downloads folder as a shared folder with auto-mount enabled.*

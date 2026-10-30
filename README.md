@@ -35,6 +35,9 @@ Welcome to my Week 1 project! This repository documents the setup of my personal
 ### 3. Kali Linux Terminal (IP & Internet Test)
 *Successfully assigning the static IP `10.0.0.2` and verifying internet connectivity with a ping to 8.8.8.8.*
 ![Kali Terminal](kali3.png)
+### 4. Snapshot Verification
+*Successfully created a snapshot of the clean VM state after configuration.*
+![Snapshot](snapshot.png)
 
 ## 🧠 Detailed Notes & Troubleshooting
 For a step-by-step breakdown of the commands used and the issues I faced (like the DHCP IP issue), please read my detailed notes:

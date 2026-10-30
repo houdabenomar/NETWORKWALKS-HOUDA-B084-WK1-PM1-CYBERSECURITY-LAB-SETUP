@@ -11,8 +11,8 @@ Welcome to my Week 1 project! This repository documents the setup of my personal
 ## ⚙️ Technical Specifications
 | Component | Details |
 | :--- | :--- |
-| **Host OS** | Windows |
-| **Virtualization** | Oracle VirtualBox 7.2 |
+| **Host OS** | Windows 11 |
+| **Virtualization** | Oracle VirtualBox 7.2.22 |
 | **Attacker Machine** | Kali Linux (2026.3) |
 | **Network Type** | NAT Network (`10.0.0.0/24`) |
 | **Kali IP** | `10.0.0.2/24` (Static) |

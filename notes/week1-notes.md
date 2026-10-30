@@ -129,6 +129,3 @@ This week was not only about installing tools. I also practiced basic Linux netw
 ```
 
 
-5.  Descends en bas et clique sur **"Commit changes..."**, puis encore sur **"Commit changes"**.
-
-**Dis-moi quand c'est fait !** 💪

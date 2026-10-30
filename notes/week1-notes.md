@@ -1,7 +1,3 @@
-Je te remets le texte **complet et corrigé** pour ton fichier `notes/week1-notes.md`. 
-
-Tu n'as qu'à **tout copier** (du premier `#` jusqu'au dernier mot) et le coller dans ton fichier sur GitHub.
-
 ```markdown
 # 📝 Week 1 - Detailed Lab Setup Notes
 
@@ -132,6 +128,7 @@ ping -c 4 8.8.8.8
 This week was not only about installing tools. I also practiced basic Linux networking and troubleshooting by identifying and correcting an IP configuration issue, and I learned the importance of documenting each step.
 ```
 
----
 
-**Fais-le maintenant et dis-moi quand c'est fait !** 💪
+5.  Descends en bas et clique sur **"Commit changes..."**, puis encore sur **"Commit changes"**.
+
+**Dis-moi quand c'est fait !** 💪

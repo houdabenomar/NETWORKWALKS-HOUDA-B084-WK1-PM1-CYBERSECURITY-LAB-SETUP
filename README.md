@@ -13,7 +13,7 @@ Welcome to my Week 1 project! This repository documents the setup of my personal
 | **Host OS** | Windows 11 (64-bit) |
 | **Processor** | Intel(R) Core(TM) i7-8665U CPU @ 1.90GHz (2.11 GHz) |
 | **RAM** | 16.0 GB |
-| **Storage** | 238 GB (227 GB used) |
+| **Storage** | 238 GB |
 | **Graphics** | Intel(R) UHD Graphics 620 |
 
 ## ⚙️ Virtual Lab Configuration
@@ -23,11 +23,11 @@ Welcome to my Week 1 project! This repository documents the setup of my personal
 | **Virtualization** | Oracle VirtualBox 7.2.22 |
 | **Attacker Machine** | Kali Linux (2026.3) |
 | **Network Type** | NAT Network (`10.0.0.0/24`) |
-| **Kali IP** | `10.0.0.2/24` (Static) |
+| **Kali IP** | `10.0.0.2/24` (Configured via terminal) |
 | **Gateway** | `10.0.0.1` |
 | **DNS Server** | `8.8.8.8` |
 | **Clipboard & Drag/Drop** | Enabled (Bidirectional) |
-| **Shared Folders** | `/downloads` (Host) → `/media/sf_downloads` (Kali) |
+| **Shared Folders** | `Downloads` (Host) → `/media/sf_Downloads` (Kali) |
 | **Snapshot** | `Clean_State_After_Config` (created after full configuration) |
 
 > **Note**: Phase 2 (Windows/Android VMs) is optional and not included in this submission.
@@ -52,7 +52,7 @@ Welcome to my Week 1 project! This repository documents the setup of my personal
 
 ## 🧠 Detailed Notes & Troubleshooting
 
-For a step-by-step breakdown of the commands used and the issues I faced (like the DHCP IP issue), please read my detailed notes:
+For a step-by-step breakdown of the commands used and the issues I faced, please read my detailed notes:
 👉 **[Click here to read the Week 1 Notes](notes/week1-notes.md)**
 
 ---

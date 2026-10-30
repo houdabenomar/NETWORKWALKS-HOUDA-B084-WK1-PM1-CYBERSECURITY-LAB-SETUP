@@ -86,7 +86,6 @@ Internet access (ping 8.8.8.8)	✅
 Clipboard & Drag/Drop enabled	✅
 Shared /Downloads folder	✅
 Snapshot taken	✅
-Phase 2 (optional)	❌ Not required
 📌 Notes
 
     All screenshots are available in the repository root.

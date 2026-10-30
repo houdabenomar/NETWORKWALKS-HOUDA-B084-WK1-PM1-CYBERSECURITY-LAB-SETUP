@@ -92,7 +92,3 @@ Snapshot taken	✅
 
     The shared folder sf_Downloads is visible on the Kali desktop.
 
-End of Week 1 Notes
-text
-💡 Un conseil pour la suite (Bonus)
-Si vous voulez que votre IP soit permanente (ce qui est mieux pour les futurs labs), je vous recommande de désactiver le DHCP pour cette VM dans les paramètres de VirtualBox et de configurer l'IP manuellement via l'icône réseau de Kali (en haut à droite). Mais pour l'instant, vos notes reflètent **exactement** ce que vous avez fait, ce qui est l'essentiel. Bravo pour votre travail ! 🎯

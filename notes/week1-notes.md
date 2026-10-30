@@ -1,94 +1,130 @@
-# 📝 Week 1 - Lab Setup Notes
-
-**Student:** Houda Benomar  
-**Batch:** B084  
-**Date:** October 2026
-
----
+```markdown
+# 📝 Week 1 - Detailed Lab Setup Notes
 
 ## 🎯 Objective
-
-Set up a virtual cybersecurity testing lab using VirtualBox and Kali Linux, with a custom NAT Network (`10.0.0.0/24`), static IP for Kali (`10.0.0.2/24`), internet access, clipboard/drag-drop enabled, and a shared `/Downloads` folder from the host.
+Set up a virtual lab environment using VirtualBox and Kali Linux, configure the virtual network, and troubleshoot the VM network configuration.
 
 ---
 
-## 📋 Step-by-Step Configuration
+## 1. VirtualBox Installation & Network Configuration
 
-### Step 1: Install 7-Zip and VirtualBox
-- Downloaded and installed **7-Zip** from [7-zip.org](https://7-zip.org/download.html).
-- Downloaded and installed **VirtualBox 7.2.22** from [virtualbox.org](https://virtualbox.org/wiki/Downloads).
+### Tools
+- Oracle VirtualBox 7.2.22
+- 7-Zip
+- Kali Linux 2026.3
+- Windows 11 host
 
-### Step 2: Create NAT Network in VirtualBox
-- Opened VirtualBox → **Tools** → **Network**.
-- Selected the **NAT Networks** tab → clicked **Create**.
-- Configured:
-  - **Name**: `NatNetwork`
-  - **IPv4 Prefix**: `10.0.0.0/24`
-  - **Enable DHCP**: ✅ (checked)
-- Clicked **Apply**.
+### NAT Network Configuration
+I created a new **NAT Network** in VirtualBox:
+- **Network name:** `NatNetwork`
+- **IPv4 Prefix:** `10.0.0.0/24`
+- **DHCP:** Enabled
 
-### Step 3: Import Kali Linux VM
-- Downloaded the Kali Linux VirtualBox image (`.7z` file) from [kali.org/get-kali](https://kali.org/get-kali).
-- Extracted the `.7z` file using 7-Zip and imported the `.vbox` file into VirtualBox.
+DHCP was initially enabled so that the Kali Linux VM could automatically receive an IP address.
 
-### Step 4: Configure Kali VM Settings
-- **Network**:
-  - Adapter 1 → Attached to: **NAT Network**
-  - Name: `NatNetwork`
-  - Promiscuous Mode: **Allow All**
-  - ✅ Virtual Cable Connected
-- **General → Advanced**:
-  - ✅ Enable Clipboard: **Bidirectional**
-  - ✅ Enable Drag'n'Drop: **Bidirectional**
-- **Shared Folders**:
-  - Added a shared folder:
-    - **Folder Path**: `C:\Users\...\Downloads` (host)
-    - **Folder Name**: `Downloads`
-    - ✅ Auto-mount
-    - ✅ Make Permanent
-  - After starting Kali, the folder appeared on the Desktop as `sf_Downloads`.
+📸 **Proof:** See `natnetwork2.png.png` in the main folder.
 
-### Step 5: Configure IP on Kali Linux (Terminal Method)
-- Started the Kali VM and opened a terminal.
-- Used the `ip` command to add the static IP manually:
+---
+
+## 2. Kali Linux VM Configuration
+
+I extracted the Kali Linux 2026.3 virtual machine and imported the `.vbox` file into VirtualBox.
+
+### VM Configuration
+**Network**
+- Attached to: `NAT Network`
+- Network name: `NatNetwork`
+
+**Shared Folder**
+- Host folder: `Downloads`
+- Auto-mount: Enabled
+- 📸 **Proof:** See `sharedfolder.png` in the main folder.
+
+**General**
+- Shared Clipboard: `Bidirectional`
+- Drag and Drop: `Bidirectional`
+- 📸 **Proof:** See `clipboard.png` in the main folder.
+
+---
+
+## 3. IP Configuration & Troubleshooting (The Main Work)
+
+After starting Kali Linux, I checked the network configuration with:
+```bash
+ip a
+```
+
+The interface initially received:
+```text
+10.0.0.3/24
+```
+
+The lab requirement was:
+```text
+10.0.0.2/24
+```
+
+### Problem
+The VM received an IP address from DHCP, but the assigned address did not match the IP required by the lab.
+
+### Solution
+I manually added the required IP address to the network interface:
 ```bash
 sudo ip addr add 10.0.0.2/24 dev eth0
 sudo ip link set eth0 up
-    Note: I used this command-line method to quickly assign the IP as requested. The interface already had a DHCP IP (10.0.0.3), so 10.0.0.2 was added as a secondary address.
+```
 
-Step 6: Test Internet Connectivity
+I then verified the network configuration again with `ip a`.
 
-    Ran:
+### DNS Configuration
+I also verified that the DNS server was set to `8.8.8.8` to ensure domain name resolution works.
 
-bash
+### What I Learned
+- How to inspect network interfaces using `ip a`
+- The difference between a DHCP-assigned IP and a manually configured IP
+- How to add an IP address to a Linux network interface
+- Basic Linux network troubleshooting
 
+---
+
+## 4. Internet Connectivity Test
+
+- **Action:** Ran the command `ping -c 4 8.8.8.8`.
+- **Result:** Received 4 packets with 0% packet loss. The VM has full internet access through the NAT Network.
+- 📸 **Proof:** See `kali3.png` in the main folder.
+
+---
+
+## 5. Snapshot Creation
+
+- **Action:** After completing all configurations, I took a snapshot of the VM named **"Lab Setup Complete"** to save a clean, working state.
+- 📸 **Proof:** See `snapshot.png` in the main folder.
+
+---
+
+## 📌 Week 1 Summary
+
+**Completed:**
+- [x] Installed VirtualBox and 7-Zip
+- [x] Created a NAT Network (`10.0.0.0/24`)
+- [x] Configured `NatNetwork`
+- [x] Imported Kali Linux
+- [x] Configured the VM network and shared folders
+- [x] Checked the Kali network interface
+- [x] Identified an IP configuration problem
+- [x] Manually configured the required IP (`10.0.0.2`)
+- [x] Verified the DNS (`8.8.8.8`) and internet connectivity
+- [x] Created a VM snapshot
+
+### Key Commands Learned
+```bash
+ip a
+sudo ip addr add 10.0.0.2/24 dev eth0
+sudo ip link set eth0 up
 ping -c 4 8.8.8.8
+```
 
-    Received replies → ✅ Internet access confirmed.
-
-🛠️ Troubleshooting & Observations
-
-Observation on IP Configuration:
-
-    When I imported Kali, the VM initially received a DHCP IP (10.0.0.3).
-
-    I used the ip addr add command to assign the static IP 10.0.0.2 as required by the lab.
-
-    Note for future labs: This method is temporary. If the VM is restarted, the IP will revert to DHCP. A permanent solution would be to configure the IP via the Network Manager GUI (Wired Settings → IPv4 → Manual) or by editing the nmcli settings.
-
-✅ Final Checklist
-Requirement	Status
-VirtualBox installed (latest)	✅
-Kali Linux VM imported	✅
-NAT Network 10.0.0.0/24 created	✅
-Kali IP 10.0.0.2/24 assigned	✅
-Internet access (ping 8.8.8.8)	✅
-Clipboard & Drag/Drop enabled	✅
-Shared /Downloads folder	✅
-Snapshot taken	✅
-📌 Notes
-
-    All screenshots are available in the repository root.
-
-    The shared folder sf_Downloads is visible on the Kali desktop.
+**Main Takeaway:**  
+This week was not only about installing tools. I also practiced basic Linux networking and troubleshooting by identifying and correcting an IP configuration issue, and I learned the importance of documenting each step.
+```
 

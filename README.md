@@ -39,6 +39,10 @@ Welcome to my Week 1 project! This repository documents the setup of my personal
 ## 🧠 Detailed Notes & Troubleshooting
 For a step-by-step breakdown of the commands used and the issues I faced (like the DHCP IP issue), please read my detailed notes:
 👉 **[Click here to read the Week 1 Notes](notes/week1-notes.md)**
-
+## 🧠 Troubleshooting & Lessons Learned
+During the setup, I encountered a common issue: my Kali VM initially received the IP `10.0.0.3/24` via DHCP instead of the required `10.0.0.2/24`. 
+I resolved this by manually assigning the static IP using:
+`sudo ip addr add 10.0.0.2/24 dev eth0`
+This experience taught me the difference between DHCP and static IPs and how to troubleshoot Linux network interfaces.
 ---
 *Created by **Houda Benomar** - Cybersecurity Intern at Networkwalks*
